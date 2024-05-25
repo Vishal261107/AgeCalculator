@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Calculator</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+  <h1>Age Calculator</h1>
+  <label for="dob">Date of Birth:</label>
+  <input type="date" id="dob" name="dob">
+  <button onclick="calculateAge()">Calculate Age</button>
+  <p id="result"></p>
+</div>
+<script src="script.js"></script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: hsl(0, 54%, 5%);
+  }
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: hsl(0, 57%, 54%);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px hsla(140, 44%, 28%, 0.102);
+  }
+  h1 {
+    text-align: center;
+  }
+  label {
+    font-weight: bold;
+  }
+  input {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 5px;
+  }
+  button {
+    padding: 5px 15px;
+    background-color: #1c0c0c;
+    color: hwb(0 91% 5%);
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: hsl(210, 38%, 87%);
+  }
+</style>
+</head>
+<script>
+ function calculateAge() {
+    const dobString = document.getElementById('dob').value;
+    const dob = new Date(dobString);
+    const now = new Date();
+  
+    const diff = now - dob;
+    const ageDate = new Date(diff);
+    const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+  
+   document.getElementById('result').innerText = `Your age is ${age} years.`;
+ }
+</script>
+</body>
+</html>
+  
+
